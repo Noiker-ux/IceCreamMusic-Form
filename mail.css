@@ -188,6 +188,17 @@ input[type=range]  {
   font-size: 18px;
   color: white;
 }
+
+.load{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.load>img{
+  width: 25px;
+  transform: rotate(175deg);
+}
+
 .nav-prev::before,.nav-next::after{
   content: '';
   position: absolute;

@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.form-section').forEach(e=>{
           e.style.display='none';
         }) 
-        document.querySelector('.navigation>p').textContent=`${sectionIndex}/6`;
+        document.querySelector('.load>p').textContent=`${sectionIndex}/6`;
         document.querySelector(`.form-section:nth-child(${sectionIndex})`).style.display='block'
       })
     })
