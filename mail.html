@@ -1,0 +1,272 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./mail.css">
+    <script src="https://unpkg.com/imask" defer></script>
+    <script src="./mail.js" defer></script>
+    <title>Загрузить релиз</title>
+ </head>
+ <body>
+    <main class="main">
+        <div class="container">
+            <h1 class="main-title">ЗАГРУЗКА РЕЛИЗА</h1>
+            <form action="send.php" method="post" class="form">
+                <section class='form-section'>
+                <!-- Синг -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Синг</p>
+                  <input type="range" name="singl-range" id="singl-range" list="singl-markers" min="0" max="1" value="0"  step="1">
+                  <datalist id="singl-markers">
+                    <option value="0" label="0">0</option>
+                    <option value="1" label="1">1</option>
+                  </datalist>
+                </div>
+                <!-- EP -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">EP</p>
+                  <input type="range" name="ep-range" id="ep-range" list="ep-markers" min="0" max="1" value="0"  step="1">
+                  <datalist id="ep-markers">
+                    <option value="0" label="0">0</option>
+                    <option value="1" label="1">1</option>
+                  </datalist>
+                </div>
+                <!-- Альбом -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Альбом</p>
+                  <input type="range" name="albom-range" id="albom-range" list="albom-markers" min="0" max="1" value="0"  step="1">
+                  <datalist id="albom-markers">
+                    <option value="0" label="0">0</option>
+                    <option value="1" label="1">1</option>
+                  </datalist>
+                </div>
+                <!-- Синхронизация текста (Караоке) -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Синхронизация текста (Караоке)</p>
+                  <input type="range" name="caraoke-range" id="caraoke-range" list="caraoke-markers" min="0" max="10" value="0"  step="1">
+                  <datalist id="caraoke-markers">
+                    <option value="0" label="0">0</option>
+                    <option value="1" label="1">1</option>
+                  <option value="2" label="2">2</option>
+                    <option value="3" label="3">3</option>
+                    <option value="4" label="4">4</option>
+                    <option value="5" label="5">5</option>
+                    <option value="6" label="6">6</option>
+                    <option value="7" label="7">7</option>
+                    <option value="8" label="8">8</option>
+                    <option value="9" label="9">9</option>
+                    <option value="10" label="10">10</option>
+                  </datalist>
+                </div>
+                <!-- Клип -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Клип</p>
+                  <input type="range" name="clip-range" id="clip-range" list="clip-markers" min="0" max="1" value="0"  step="1">
+                  <datalist id="clip-markers">
+                    <option value="0" label="0">0</option>
+                    <option value="1" label="1">1</option>
+                  </datalist>
+                </div>
+              </section>
+
+
+
+              <section class='form-section'>
+                <!-- ФИО -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">ФИО исполнителя(-ей)</p>
+                  <p class="wrapper__input-text">Фамилия, имя, отчество полностью</p>
+                  <input type="text" name="fio" id="fio-input"  placeholder="Иванов Петр Броукович"/>
+                </div>
+                <!-- Никнейм -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Никнейм исполнителя(-ей)</p>
+                  <p class="wrapper__input-text">Если исполнителей несколько, то указать через запятую</p>
+                  <input type="text" name="nick" id="nick-input"  placeholder="Ник"/>
+                </div>
+                <!-- Ссылка на вк страничку -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Ссылка на вашу личную страницу в ВК</p>
+                  <input type="text" name="linkVK" id="linkVK-input"  placeholder="https://vk.com/id"/>
+                </div>
+                <!-- email -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">E-mail</p>
+                  <input type="text" name="email" id="email-input"  placeholder="support@icecreammusic.ru"/>
+                </div>
+              </section>
+
+
+
+              <section class='form-section'>
+                <!-- Паспортные данные серия номер -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Серия, номер паспорта</p>
+                  <input type="text" name="pasport-ser-nom" id="pasport-ser-nom-input"  placeholder="3081 929293"/>
+                </div>
+                <!-- Паспортные данные Кем выдан -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Кем выдан</p>
+                  <input type="text" name="pasport-ser-nom" id="pasport-ser-nom-input"  placeholder="Отделением УФМС России по г. Домодедово"/>
+                </div>
+                <!-- Паспортные данные Дата выдачи -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Дата выдачи</p>
+                  <input type="text" id="pasport-control" name="pasport-control" class="pasport-control" placeholder="14.04.2000" onfocus="(this.type='date')"/>
+                </div>
+                <!-- Паспортные данные Адрес регистрации -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Адрес регистрации</p>
+                  <p class="wrapper__input-text">Указать полностью как в паспорте</p>
+                  <textarea name="pasport-addresss" id="pasport-addresss"  placeholder="Россия, г. Домодедово, Западная ул., д. 16 кв.4"/></textarea>
+                </div>
+              </section>
+
+
+
+
+
+              <section class='form-section'>
+                <!-- Название релиза -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Название релиза</p>
+                  <p class="wrapper__input-text">Для сингла указать название трека, для EP/альбома название релиза</p>
+                  <input type="text" name="name-relize" id="name-relize-input"  placeholder="Попасть в ноты"/>
+                </div>
+                <!-- ФИО автора(-ов) музыки -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">ФИО автора(-ов) музыки</p>
+                  <p class="wrapper__input-text">Укажите фамилию, имя, отчество битмейкера(-ов) или аранжировщика(-ов)</p>
+                  <input type="text" name="fio-authors-music" id="fio-authors-music-input"  placeholder="Низовский Никита Валентинович"/>
+                </div>
+                <!-- Фамилия, имя, отчество автора(-ов) текста -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Фамилия, имя, отчество автора(-ов) текста</p>
+                  <input type="text" name="fio-authors-text" id="fio-authors-text-input"  placeholder="Пестов Константин Николаевич"/>
+                </div>
+                <!-- Начало прослушивания в Apple Music и tiktok -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Начало прослушивания в Apple Music и tiktok</p>
+                  <input type="text" name="start-listening" id="start-listening-input"  placeholder="00:20"/>
+                </div>
+                <!-- checkboxes -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">feat. или «,»? (Если артистов несколько)</p>
+                  <fieldset>
+                    <legend>Необязательно для заполнения, если трек сольный</legend>
+                  
+                    <div>
+                      <input type="checkbox" class="custom-checkbox" id="feat" name="feat" />
+                      <label for="feat">feat.</label>
+                    </div>
+                  
+                    <div>
+                      <input type="checkbox" class="custom-checkbox" id="more-artist" name="more-artist" />
+                      <label for="more-artist">«,»</label>
+                    </div>
+                  </fieldset>
+
+                  <fieldset>
+                    <legend>Дополнительные параметры</legend>
+                  
+                  <div>
+                    <input type="checkbox" class="custom-checkbox" id="profanity" name="profanity" />
+                    <label for="profanity">Присутствует ли ненормативная лексика в треке?</label>
+                  </div>
+
+                  <div>
+                    <input type="checkbox" class="custom-checkbox" id="relize_with_promo" name="relize_with_promo" />
+                    <label for="relize_with_promo">Загрузка релиза с промо? (С промо дата выхода релиза увеличивается)</label>
+                  </div>
+                </fieldset>
+
+                </div>
+                <!-- date exit -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Желаемая дата выхода</p>
+                  <p class="wrapper__input-text">Не менее, чем за 10 рабочих дней без подачи на промо Не менее, чем за 15 дней с подачей на промо Окончательную дату релиза озвучиваем после прохождения модерации</p>
+                  <input type="text" id="date-exit" name="date-exit" class="pasport-control" placeholder="14.04.2024" onfocus="(this.type='date')"/>
+                </div>
+                <!-- genre -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Жанр трека</p>
+                  <p class="wrapper__input-text">Укажите основной жанр релиза</p>
+                  <input type="text" name="genre" id="genre-input"  placeholder="POP"/>
+                </div>
+                <!-- link apple music -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Ссылка на карточку артиста в Apple Music</p>
+                  <p class="wrapper__input-text">Можно оставить пустым, если карточки нет</p>
+                  <input type="text" name="linkAppleMusic" id="linkAppleMusic-input"  placeholder="https://music.apple.com/ru/artist/{artist name}"/>
+                </div>
+                <!-- link Spotify music -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Ссылка на карточку артиста в Spotify</p>
+                  <p class="wrapper__input-text">Можно оставить пустым, если карточки нет</p>
+                  <input type="text" name="linkSpotify" id="linkSpotify-input"  placeholder="https://open.spotify.com/artist/{artist name}"/>
+                </div>
+              </section>
+
+
+
+
+
+              <section class='form-section'>
+                <!-- link cloud -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Ссылка на облако с файлом релиза</p>
+                  <p class="wrapper__input-text">Трек(-и) в формате Wav (минимальное качество 44100, 16 bit)</p>
+                  <input type="text" name="linkcloud" id="linkcloud-input"/>
+                </div>
+                <!-- album cover -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Прикрепите обложку релиза</p>
+                  <p class="wrapper__input-text">Минимальный размер: 1400x1400px, разрешение: не менее 72 dpi</p>
+                  <input class='custom-file-input' type="file" name="albumCover" id="albumCover" accept="image/png, image/gif, image/jpeg, image/jpg" title="Album cover"/>
+                </div>
+                <!-- texts tracks -->
+                <div class="form__block">
+                  <p class="wrapper__input-text">Тексты треков</p>
+                  <p class="wrapper__input-text">Все тексты поместите в один файл формата docx.</p>
+                  <input class='custom-file-input' type="file" name="alltexts" id="alltexts" accept=".docx" title="Album cover"/>
+                </div>
+              </section>
+
+
+              <section class='form-section'>
+                <div class="form__block">
+                  <p class="wrapper__input-text">Сообщение для модератора (можно оставить пустым)</p>
+                  <p class="wrapper__input-text">Укажите информацию, которая поможет модераторам проверить релиз, например, особенности написания названий, исполнителей, указать prod. by и т.д.</p>
+                  <textarea name="message-for-moder" id="message-for-moder"  placeholder=""/></textarea>
+
+                  <div class="finish-checkboxes">
+                    <div>
+                      <input type="checkbox" class="custom-checkbox" id="familiar-check" name="familiar-check" />
+                      <label for="familiar-check">С основной информацией и инструкцией по отгрузке ознакомлен(-а)</label>
+                    </div>
+                 
+
+                    <div>
+                      <input type="checkbox" class="custom-checkbox" id="personal-data-check" name="personal-data-check" />
+                      <label for="personal-data-check">Согласие на обработку персональных данных</label>
+                    </div>
+                  </div>
+
+
+                </div>
+              </section>
+            </form>
+            <p class="personal-data-link">Продолжая, вы соглашаетесь <a href='./sendrelease.html'>с политикой обработки персональных данных</a></p>
+            <nav class="navigation">
+              <button type="button" class="nav-prev" disabled>Назад</button>
+              <p>1/6</p>
+              <button type="button" class="nav-next">Далее</button>
+            </nav>
+        </div>
+    </main>
+ </body>
+ </html>
