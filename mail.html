@@ -7,6 +7,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./mail.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js" integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    
+   <script src="https://smtpjs.com/v3/smtp.js" defer> </script>
+
     <script src="https://unpkg.com/imask" defer></script>
     <script src="./mail.js" defer></script>
     <title>Загрузить релиз</title>
@@ -15,7 +20,7 @@
     <main class="main">
         <div class="container">
             <h1 class="main-title">ЗАГРУЗКА РЕЛИЗА</h1>
-            <form action="send.php" method="post" class="form">
+            <form action="sender.php" method="post" id="send-form" class="form">
                 <section class='form-section'>
                 <!-- Синг -->
                 <div class="form__block">
@@ -111,7 +116,7 @@
                 <!-- Паспортные данные Кем выдан -->
                 <div class="form__block">
                   <p class="wrapper__input-text">Кем выдан</p>
-                  <input type="text" name="pasport-ser-nom" id="pasport-ser-nom-input"  placeholder="Отделением УФМС России по г. Домодедово"/>
+                  <input type="text" name="pasport-vidan" id="pasport-vidan"  placeholder="Отделением УФМС России по г. Домодедово"/>
                 </div>
                 <!-- Паспортные данные Дата выдачи -->
                 <div class="form__block">
@@ -226,13 +231,15 @@
                 <div class="form__block">
                   <p class="wrapper__input-text">Прикрепите обложку релиза</p>
                   <p class="wrapper__input-text">Минимальный размер: 1400x1400px, разрешение: не менее 72 dpi</p>
-                  <input class='custom-file-input' type="file" name="albumCover" id="albumCover" accept="image/png, image/gif, image/jpeg, image/jpg" title="Album cover"/>
+                  <input class='custom-file-input hidden' type="file" name="albumCover" id="albumCover" accept="image/png, image/gif, image/jpeg, image/jpg" title="Album cover"/>
+                  <label for="albumCover">Выбрать файл</label>
                 </div>
                 <!-- texts tracks -->
                 <div class="form__block">
                   <p class="wrapper__input-text">Тексты треков</p>
                   <p class="wrapper__input-text">Все тексты поместите в один файл формата docx.</p>
-                  <input class='custom-file-input' type="file" name="alltexts" id="alltexts" accept=".docx" title="Album cover"/>
+                  <input class='custom-file-input hidden' type="file" name="alltexts" id="alltexts" accept=".docx" title="Track Texts" value="123"/>
+                  <label for="alltexts">Выбрать файл</label>
                 </div>
               </section>
 
@@ -241,7 +248,7 @@
                 <div class="form__block">
                   <p class="wrapper__input-text">Сообщение для модератора (можно оставить пустым)</p>
                   <p class="wrapper__input-text">Укажите информацию, которая поможет модераторам проверить релиз, например, особенности написания названий, исполнителей, указать prod. by и т.д.</p>
-                  <textarea name="message-for-moder" id="message-for-moder"  placeholder=""/></textarea>
+                  <textarea name="message-for-moder" id="message-for-moder"  placeholder="" required/></textarea>
 
                   <div class="finish-checkboxes">
                     <div>
@@ -255,7 +262,21 @@
                       <label for="personal-data-check">Согласие на обработку персональных данных</label>
                     </div>
                   </div>
+                  
+                  <input type="text" class="antibotspam" name="antibotspam" value="" style="display: none;">
 
+                  <button type="submit" class="sendBtn">Отправить письмо</button>
+                  
+                  <div class="responce" style="display: none;">
+                    <h2>Спасибо за ваше обращение</h2>
+                    <p>Через <span class='responce__second'>5</span> секунд вы будете перенаправленны на главную страницу</p>
+                  </div>
+
+
+                  <div class="responce_err" style="display: none;">
+                    <h2>Ошибка. </h2>
+                    <p>Отсутствует согласие на обработку персональных данных и подтверждение по ознакомлению с основной информацией и инструкцией по отгрузке</p>
+                  </div>
 
                 </div>
               </section>

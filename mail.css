@@ -250,3 +250,33 @@ padding: 5px 15px 5px 35px;
 .personal-data-link>a{
   color: rgb(117, 206, 205);
 }
+.sendBtn{
+  color: white;
+  padding: 8px 15px;
+  background-color: #000000;
+  border: none;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.responce, .responce_err{
+    padding: 50px 5px;
+    background: #000;
+    color: white;
+}
+.hidden{
+  visibility: hidden;
+  margin-top: 15px;
+}
+.hidden+label{
+  color: white;
+  padding: 8px 15px;
+  background-color: #000000;
+  border: none;
+  margin-top: 20px;
+  margin-right: 255px;
+  cursor: pointer;
+}
+button:hover, .hidden+label:hover{
+  background-color: #1f1313ea;
+  transition: all .2s ease;
+}
